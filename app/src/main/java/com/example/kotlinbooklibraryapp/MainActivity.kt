@@ -20,8 +20,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KotlinBookLibraryTheme {
+                val navHostController = rememberNavController()
+                
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val navHostController = rememberNavController()
                     NavGraph(navHostController = navHostController)
                 }
             }

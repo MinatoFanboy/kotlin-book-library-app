@@ -18,8 +18,8 @@ fun NavGraph(navHostController: NavHostController) {
 
         composable<Routes.ShowPdfScreen> {
             backStackEntry ->
-                val data: Routes.ShowPdfScreen = backStackEntry.toRoute()
-                PdfViewerScreen(url = data.url)
+                val data1: Routes.ShowPdfScreen = backStackEntry.toRoute()
+                PdfViewerScreen(url = data1.url)
         }
 
         composable<Routes.BooksByCategory> {

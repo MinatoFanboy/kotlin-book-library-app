@@ -2,6 +2,7 @@ package com.example.kotlinbooklibraryapp.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,8 +16,5 @@ import com.rizzi.bouquet.rememberVerticalPdfReaderState
 
 @Composable
 fun PdfViewerScreen(url: String) {
-    var isDarkMode by remember { mutableStateOf(false) }
-    val pdfState = rememberVerticalPdfReaderState(resource = ResourceType.Remote(url), isZoomEnable = true)
-
-    VerticalPDFReader(state = pdfState, modifier = Modifier.fillMaxSize().background(color = Color.Gray))
+    Text("PdfViewer Screen")
 }

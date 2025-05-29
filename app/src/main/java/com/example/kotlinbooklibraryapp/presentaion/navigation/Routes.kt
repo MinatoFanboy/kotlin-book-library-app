@@ -7,7 +7,7 @@ sealed class Routes {
     object HomeScreen
 
     @Serializable
-    object data class BooksByCategory(val category: String)
+    data class BooksByCategory(val category: String)
 
     @Serializable
     data class ShowPdfScreen(val url: String)

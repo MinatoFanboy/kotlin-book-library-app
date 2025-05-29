@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
@@ -34,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.kotlinbooklibraryapp.presentation.TabScreen.TabScreen
+import com.example.kotlinbooklibraryapp.presentation.UIcomponent.Icon
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,6 +61,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     Divider()
                     NavigationDrawerItem(
                         label = { Text("Home") },
+                        icon = { Icon("\uE9A7") },
                         selected = true,
                         onClick = {
                             coroutineScope.launch {
@@ -70,6 +73,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     Divider()
                     NavigationDrawerItem(
                         label = { Text("Version 1.0") },
+                        icon = { Icon("\uEA26") },
                         selected = false,
                         onClick = {
                             coroutineScope.launch {
@@ -82,6 +86,7 @@ fun HomeScreen(navHostController: NavHostController) {
                     Divider()
                     NavigationDrawerItem(
                         label = { Text("Contact me") },
+                        icon = { Icon("\uE959") },
                         selected = false,
                         onClick = {
                             urlHandler.openUri("https://github.com/minatofanboy")
@@ -98,13 +103,21 @@ fun HomeScreen(navHostController: NavHostController) {
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(
-                            "Book Library",
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp
-                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                "Book Library",
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 20.sp
+                            )
+                        }
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = { coroutineScope.launch { drawerState.open() } }) {
+                            Icon("\uE9B7")
+                        }
                     },
                     scrollBehavior = scrollBehavior
                 )
