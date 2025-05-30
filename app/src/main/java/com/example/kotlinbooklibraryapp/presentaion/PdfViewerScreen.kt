@@ -16,5 +16,8 @@ import com.rizzi.bouquet.rememberVerticalPdfReaderState
 
 @Composable
 fun PdfViewerScreen(url: String) {
-    Text("PdfViewer Screen")
+    var isDarkMode by remember { mutableStateOf(false) }
+    val pdfState = rememberVerticalPdfReaderState(resource = ResourceType.Remote(url), isZoomEnable = true)
+
+    VerticalPDFReader(state = pdfState, modifier = Modifier.fillMaxSize().background(color = Color.Gray))
 }
